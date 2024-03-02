@@ -1,99 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <title>Portofolio</title>
-    <style>
-      .section {
-        padding: 0px 20px 0px 20px;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <title>Portofolio</title>
+  <style>
+    .section {
+      padding: 0px 20px 0px 20px;
+    }
+
+    .jumbotron {
+      background-image: url("img/marvellll.jpg");
+      /* Temporary placeholder image */
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 100px 0;
+      margin-bottom: 0;
+    }
+  </style>
+  <style>
+    .card-reveal {
+      animation: slide-up 0.5s ease forwards;
+    }
+
+    @keyframes slide-up {
+      from {
+        transform: translateY(100%);
       }
-      .jumbotron {
-        background-image: url("img/marvellll.jpg"); /* Temporary placeholder image */
-        background-size: cover;
-        color: #fff;
-        text-align: center;
-        padding: 100px 0;
-        margin-bottom: 0;
+
+      to {
+        transform: translateY(0%);
       }
-    </style>
-  </head>
-  <body>
-    <section id="navbar" class="section">
-      <div class="container-fluid">
-        <header class="d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom">
-          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap" /></svg>
-            <span class="fs-4">Portofolio</span>
-          </a>
+    }
+  </style>
+  `
+</head>
 
-          <ul class="nav nav-pills">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">About Me</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Project</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-          </ul>
-        </header>
-      </div>
-    </section>
 
-    <section id="home">
-      <h2>Home</h2>
-      <div class="jumbotron">
-        <h1 class="display-4">Welcome to Wishal Portofolio</h1>
-        <p class="lead">Are you ready?</p>
-      </div>
-    </section>
+<header class="d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom"
+  style="position: fixed; width: 100%; top: 0; z-index: 1000; background: linear-gradient(to bottom left, rgb(148, 248, 255), white);">
+  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+    <svg class="bi me-2" width="40" height="32">
+      <use xlink:href="#bootstrap" />
+    </svg>
+    <span class="fs-4" style="color: black; font-weight: 700;">Portofolio</span>
+  </a>
 
-    <section id="aboutme">
-      <div class="container mt-5">
-        <h2>About Me</h2>
-        <div class="row">
-          <div class="col-md-3">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="img/wishal1.jpg" class="d-block w-100" style="max-height: 400px" alt="Project 1" />
-                </div>
-                <div class="carousel-item">
-                  <img src="img/wishal2.jpg" class="d-block w-100" style="max-height: 400px" alt="Project 2" />
-                </div>
-                <div class="carousel-item">
-                  <img src="img/wshal3.jpg" class="d-block w-100" style="max-height: 400px" alt="Project 3" />
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
+  <ul class="nav nav-pills">
+    <li class="nav-item"><a id="home-link" href="#" class="nav-link" style="color: black;">Home</a></li>
+    <li class="nav-item"><a id="aboutme-link" href="#aboutme" class="nav-link" style="color: black;">About Me</a></li>
+    <li class="nav-item"><a id="project-link" href="#project" class="nav-link" style="color: black;">Project</a></li>
+    <li class="nav-item"><a id="contact-link" href="#contact" class="nav-link" style="color: black;">Contact</a></li>
+  </ul>
+
+</header>
+
+<body style="background: linear-gradient(to bottom left, rgb(148, 248, 255), white);">
+
+  <div class="container" style="height: 50px;"></div>
+
+
+  <section id="home" style="background-color: black;">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div
+            style="background-image: url('img/marvellll.jpg'); opacity:0.7 ; background-size: cover; color: #fff; text-align: center; padding: 100px 0; margin-bottom: 0; height: 80vh;">
+            <div class="container text-center">
+              <h1 class="display-4 text-center position-relative"
+                style="font-size: 85px; font-weight: 900; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                Welcome to My Portfolio
+              </h1>
+
+              <p class="lead" style="font-weight: 900;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Vestibulum fringilla nisl id
+                lacus condimentum, vel gravida magna tincidunt.</p>
             </div>
           </div>
-          <div class="col-md-6">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet nulla vitae nulla gravida sollicitudin non nec libero. Nullam lacinia lacus nec felis volutpat, at tincidunt turpis gravida. Sed finibus nisi eget justo
-              finibus, nec feugiat orci consequat. Nullam auctor massa quis nisi vehicula interdum. Duis vestibulum ultrices nulla, eu dapibus neque dignissim id. Proin vehicula accumsan lorem, nec suscipit leo. Vestibulum in lacus et
-              sapien tempus convallis. Integer a felis sed dui cursus ullamcorper. Duis auctor, nisl non luctus convallis, turpis ex luctus libero, sit amet convallis felis felis eu leo. Cras in lectus nec risus egestas fringilla.
-            </p>
-            <a href="#" class="btn btn-primary">View More</a>
+        </div>
+        <div class="carousel-item">
+          <div
+            style="background-image: url('https://cdn.oneesports.id/cdn-data/sites/2/2023/06/Marvel-RuangDM.jpg'); opacity:0.7 ; background-size: cover; color: #fff; text-align: center; padding: 100px 0; margin-bottom: 0; height: 80vh;">
+            <div class="container text-center">
+              <h1 class="display-4"
+                style="font-size: 85px; font-weight: 400; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Welcome to My
+                Portfolio</h1>
+              <p class="lead" style="font-weight: 900;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Vestibulum fringilla nisl id
+                lacus condimentum, vel gravida magna tincidunt.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+
+  <section id="aboutme" style="height: 90vh; display: flex; justify-content: center; align-items: center; ">
+    <div class="container mt-5">
+      <h2>About Me</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="img/wishal1.jpg" class="d-block w-100" style="max-height: 400px" alt="Project 1" />
+              </div>
+              <div class="carousel-item">
+                <img src="img/wishal2.jpg" class="d-block w-100" style="max-height: 400px" alt="Project 2" />
+              </div>
+              <div class="carousel-item">
+                <img src="img/wshal3.jpg" class="d-block w-100" style="max-height: 400px" alt="Project 3" />
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <p>
+            Nama: Wishal Azharyan Alhisyam<br>
+            Tempat Tanggal Lahir: Jember, 28 November 2003<br>
+            Asal Kampus: Politeknik Negeri Jember<br>
+            Jurusan: Teknologi Informasi - Teknik Informatika<br>
+            Asal Daerah: Jember<br>
+            Hobi : Menyanyi Dan Streaming Film
+          </p>
+
+          <p id="aboutText" style="display: none;">
+            Nama saya Wishal Azharyan Alhisyam, atau biasa dipanggil Wishal. Saat ini, saya adalah mahasiswa di
+            Politeknik Negeri Jember, jurusan Teknologi Informasi, program studi Teknik Informatika, semester 6. Saya
+            mengikuti program Magang & Studi Independen Bersertifikat (MSIB) dengan fokus pada pengembangan web Full
+            Stack. Saya lahir di Jember pada tanggal 28 November 2003.
+
+            Saya tumbuh dan besar di Jember, sebuah kota yang kaya akan budaya dan tradisi. Pengalaman hidup di kota ini
+            telah membentuk pandangan dan minat saya dalam bidang teknologi dan inovasi. Hal ini mendorong saya untuk
+            terus belajar dan berkembang di dunia teknologi informasi.
+
+            Di samping aktivitas akademis, hobi saya adalah bernyanyi. Saya menemukan kegembiraan dan inspirasi dalam
+            musik, baik itu saat tampil di atas panggung maupun sekadar bernyanyi bersama lagu-lagu favorit. Hobi ini
+            menjadi bagian penting dalam kehidupan saya, memberikan saya kesempatan untuk berekspresi dan bersantai di
+            tengah kesibukan sehari-hari.
+          </p>
+
+          <a href="#" id="viewMoreButton" class="btn btn-primary">View More</a>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section id="project">
+    <div class="container py-5">
+      <h2>Project</h2>
+      <p style="text-align: justify;">
+        Saya memiliki pengalaman yang beragam dalam mengembangkan berbagai proyek web. Salah satunya adalah
+        pengembangan website untuk manajemen petani, di mana saya terlibat dalam membangun platform yang memungkinkan
+        para petani untuk mengelola dan melacak aktivitas pertanian mereka secara efisien. Selain itu, saya juga telah
+        membuat website media sosial untuk komunitas forum, di mana saya bertanggung jawab dalam merancang dan
+        mengembangkan platform interaktif yang memfasilitasi komunikasi antar anggota komunitas serta berbagi konten
+        dan informasi relevan. Selain itu, saya juga telah terlibat dalam pembuatan proyek digital twins, di mana saya
+        bekerja dalam pengembangan platform yang memungkinkan simulasi dan visualisasi digital dari objek fisik atau
+        sistem. Pengalaman saya dalam proyek-proyek ini telah memperluas pemahaman saya tentang pengembangan web dan
+        teknologi terkini.
+      </p>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light" style="position: relative;">
+              <h2
+                style="border-bottom: 1px solid #eee; font-weight: 400; line-height: 1.7; margin-bottom: 0; margin-top: 0; padding: 15px 20px; text-align: center;">
+                Tahun 2023</h2>
+              <img src="img/wishal1.jpg" style="width: 100%; height: 20%;" onclick="toggleDescription(this)">
+              <div class="card-reveal"
+                style="display: none; position: absolute; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.9); padding: 20px;">
+                <h2
+                  style="border-bottom: 1px solid #eee; font-weight: 400; line-height: 1.7; margin-bottom: 0; margin-top: 0; padding: 15px 20px; text-align: center;">
+                  Digital Twins</h2>
+                <p style="text-align: justify;">
+                  Digital Twin adalah konsep yang memungkinkan replikasi digital dari objek fisik di dunia
+                  nyata. Dalam konteks ini, sebuah robot akan dikendalikan oleh sensor yang mengukur gerakan dan
+                  posisinya. Data yang dikumpulkan oleh sensor tersebut kemudian ditangkap oleh kamera dan ditampilkan
+                  secara real-time dalam bentuk visualisasi 3D di web. Proses ini memungkinkan pengguna untuk memantau
+                  dan berinteraksi dengan pergerakan robot secara langsung dan menyeluruh, membawa pengalaman yang lebih
+                  mendalam tentang cara robot beroperasi dan berinteraksi dengan lingkungannya.</p>
+              </div>
+            </div>
+            <h2
+              style="border-bottom: 1px solid #eee; font-weight: 400; line-height: 1.7; margin-bottom: 0; margin-top: 0; padding: 15px 20px; text-align: center;">
+              Digital Twins</h2>
+
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light" style="position: relative;">
+              <h2
+                style="border-bottom: 1px solid #eee; font-weight: 400; line-height: 1.7; margin-bottom: 0; margin-top: 0; padding: 15px 20px; text-align: center;">
+                Tahun 2023</h2>
+              <img src="img/wishal1.jpg" style="width: 100%; height: 20%;" onclick="toggleDescription(this)">
+              <div class="card-reveal"
+                style="display: none; position: absolute; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.9); padding: 20px;">
+                <h2
+                  style="border-bottom: 1px solid #eee; font-weight: 400; line-height: 1.7; margin-bottom: 0; margin-top: 0; padding: 15px 20px; text-align: center;">
+                  Mastrip Tool</h2>
+                <p style="text-align: justify;">
+                  Mastrip Tool adalah aplikasi yang menyediakan platform online untuk memfasilitasi jual beli perkakas
+                  dengan lebih efisien dan nyaman. Dengan katalog yang lengkap dan fitur pencarian yang canggih,
+                  pengguna dapat dengan mudah menemukan dan memilih perkakas yang mereka butuhkan, serta melakukan
+                  transaksi pembelian dengan aman dan praktis. Ini memberikan pengalaman berbelanja yang lebih
+                  menyenangkan dan efektif bagi para pengguna yang membutuhkan berbagai perkakas untuk kebutuhan mereka
+                  sehari-hari atau proyek-proyek khusus.</p>
+              </div>
+            </div>
+            <h2
+              style="border-bottom: 1px solid #eee; font-weight: 400; line-height: 1.7; margin-bottom: 0; margin-top: 0; padding: 15px 20px; text-align: center;">
+              Mastrip Tool</h2>
+
+          </div>
+        </div>
+        <div class="col-lg-4 py-2">
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light" style="position: relative;">
+              <h2
+                style="border-bottom: 1px solid #eee; font-weight: 400; line-height: 1.7; margin-bottom: 0; margin-top: 0; padding: 15px 20px; text-align: center;">
+                Tahun 2023</h2>
+              <img src="img/wishal1.jpg" style="width: 100%; height: 20%;" onclick="toggleDescription(this)">
+              <div class="card-reveal"
+                style="display: none; position: absolute; bottom: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.9); padding: 20px;">
+                <h2
+                  style="border-bottom: 1px solid #eee; font-weight: 400; line-height: 1.7; margin-bottom: 0; margin-top: 0; padding: 15px 20px; text-align: center;">
+                  Edifarm</h2>
+                <p style="text-align: justify;">
+                  Aplikasi Edifarm adalah sebuah platform yang dibangun menggunakan framework Laravel. Merupakan
+                  sebuah aplikasi berbasis website, Edifarm berperan sebagai wadah forum diskusi bagi para petani.
+                  Dengan menggunakan Edifarm, para petani dapat berinteraksi, berbagi pengalaman, dan mendiskusikan
+                  berbagai topik terkait pertanian. Selain tersedia dalam versi website, Edifarm juga memiliki versi
+                  mobile yang memungkinkan pengguna untuk mengakses platform tersebut secara lebih fleksibel melalui
+                  perangkat seluler mereka.</p>
+              </div>
+            </div>
+            <h2
+              style="border-bottom: 1px solid #eee; font-weight: 400; line-height: 1.7; margin-bottom: 0; margin-top: 0; padding: 15px 20px; text-align: center;">
+              Edifarm Company</h2>
+
           </div>
         </div>
       </div>
-    </section>
+  </section>
+  <section id="contact" style="height: 90vh; display: flex; justify-content: center; align-items: center; ">
+    <div class="container mt-5">
+      <div class="inner">
+        <div class="row">
+          <div class="col-lg-6">
 
-    <footer class="footer mt-auto py-3 bg-light">
-      <div class="container text-center">
-        <span class="text-muted">© 2024 My Portofolio</span>
+
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.267994267677!2d110.36330841477498!3d-7.798400394394895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb7b41f96e33%3A0x6bd7e3c900573a17!2sJl.%20Semanggi%2C%20Danaualas%2C%20Kec.%20Gedangsari%2C%20Kabupaten%20Gunung%20Kidul%2C%20Daerah%20Istimewa%20Yogyakarta%2055174!5e0!3m2!1sen!2sid!4v1645720636256!5m2!1sen!2sid"
+              width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+          </div>
+          <div class="col-lg-6">
+            <div class="container py-5 px-5"
+              style="background-color: white; border-radius: 20px; width: 100%; height: 100%;">
+              <h2 class="text-center">Contact Me</h2>
+              <p>If you have any questions please fell free to contact with us.</p>
+
+              <form class="form">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <input type="text" name="name" placeholder="Wishal Azharyan Al Hisyam" required=""
+                        style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 8px;" disabled>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <input type="text" name="name" placeholder="Jember, 28 November 2003" required=""
+                        style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 8px;" disabled>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <input type="text" name="name" placeholder="Politeknik Negeri Jember" required=""
+                        style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 8px;" disabled>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <input type="text" name="name" placeholder="Teknologi Informasi" required=""
+                        style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 8px;" disabled>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-lg-4 col-12 ">
+            <a href="https://wa.me/6282232937743" style="text-decoration: none; color: black;">
+              <h3>082232937743</h3>
+            </a>
+            <p>WhatsApp/Telepon</p>
+          </div>
+          <div class="col-lg-4 col-12 ">
+            <h3>wishal@gmail.com</h3>
+            <p>Email</p>
+          </div>
+          <div class="col-lg-4 col-12 ">
+            <h3>@wishal</h3>
+            <p>Linkedin</p>
+          </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    var aboutText = document.getElementById("aboutText");
+    var viewMoreButton = document.getElementById("viewMoreButton");
+
+    viewMoreButton.addEventListener("click", function () {
+      if (aboutText.style.display === "none" || aboutText.style.display === "") {
+        aboutText.style.display = "block";
+        viewMoreButton.textContent = "View Less";
+      } else {
+        aboutText.style.display = "none";
+        viewMoreButton.textContent = "View More";
+      }
+    });
+
+    function toggleDescription(element) {
+      var cardReveal = element.nextElementSibling;
+      if (cardReveal.style.display === "none" || cardReveal.style.display === "") {
+        cardReveal.style.display = "block";
+      } else {
+        cardReveal.style.display = "none";
+      }
+    }
+
+  </script>
+
+
+
+  <footer class="footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+      <span class="text-muted">© 2024 My Portofolio</span>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    var mymap = L.map('myMap').setView([-7.798, 110.365], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(mymap);
+
+    L.marker([-7.798, 110.365]).addTo(mymap)
+      .bindPopup('<b>Lokasi Kami</b><br>Jl. Contoh No.123, Kota, Negara')
+      .openPopup();
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function setActiveLink() {
+      var sections = document.querySelectorAll('section');
+      var scrollPosition = window.scrollY || window.pageYOffset;
+      for (var i = 0; i < sections.length; i++) {
+        var section = sections[i];
+        var sectionId = section.getAttribute('id');
+        var sectionOffsetTop = section.offsetTop - 50;
+        if (scrollPosition >= sectionOffsetTop) {
+          document.querySelectorAll('.nav-link').forEach(function (link) {
+            link.classList.remove('active');
+          });
+          var activeLink = document.getElementById(sectionId + '-link');
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', setActiveLink);
+    window.addEventListener('scroll', setActiveLink);
+  </script>
+</body>
+
 </html>
